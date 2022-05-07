@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="226" pageHeight="623" columnWidth="198" leftMargin="14" rightMargin="14" topMargin="42" bottomMargin="42" uuid="136e330d-8536-4ede-ba9a-a2859133253f">
+	<property name="ireport.zoom" value="2.5937424601000036"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="906"/>
+	<parameter name="venta_cabecera_iden" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\DOC\\programa\\SisInventarioFacturacion\\src\\Reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     CONCAT(tbl_usuario.user_ape,", ",tbl_usuario.user_nom) AS vendedor,
+     tbl_venta_cabecera.`venta_cabecera_iden` AS id,
+     tbl_venta_cabecera.`vc_codf` AS vc_codf,
+     tbl_cliente.`cli_ruc` AS ruc,
+     tbl_cliente.`cli_desc` AS empresa,
+     tbl_venta_cabecera.`vc_fecha` AS fecha_emision,
+     tbl_venta_cabecera.`vc_igv` AS igv,
+     tbl_venta_cabecera.`vc_impt` AS impt,
+     tbl_venta_cabecera.`vc_mone` AS mone,
+     tbl_venta_cabecera.`vc_cond_pago` AS cond_pago,
+     tbl_venta_cabecera.`vc_imp` AS imp,
+     tbl_venta_cabecera.`vc_letras_impt` AS letras_impt
+FROM
+     `tbl_venta_cabecera` tbl_venta_cabecera INNER JOIN `tbl_cliente` tbl_cliente ON tbl_venta_cabecera.`cliente_iden` = tbl_cliente.`cliente_iden`
+     INNER JOIN `tbl_usuario` tbl_usuario ON tbl_venta_cabecera.`usuario_iden` = tbl_usuario.`usuario_iden`
+WHERE
+     tbl_venta_cabecera.venta_cabecera_iden = $P{venta_cabecera_iden}]]>
+	</queryString>
+	<field name="venta_cabecera_iden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="usuario_iden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente_iden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_doc_iden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_codf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_impt" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_igv" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_mone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_cond_pago" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_imp" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_letras_impt" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_serie" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vc_num" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_ruc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_celu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_tipc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_dire" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_usuario_iden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_dni" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_ruc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_cl_sol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_celu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_pass" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_nom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_ape" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vendedor" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="ruc" class="java.lang.String"/>
+	<field name="empresa" class="java.lang.String"/>
+	<field name="fecha_emision" class="java.lang.String"/>
+	<field name="igv" class="java.lang.Double"/>
+	<field name="impt" class="java.lang.Double"/>
+	<field name="mone" class="java.lang.String"/>
+	<field name="cond_pago" class="java.lang.String"/>
+	<field name="imp" class="java.lang.Double"/>
+	<field name="letras_impt" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="146" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="30" width="198" height="22" uuid="4957fb02-9f3d-4a8d-90ca-12799db20a47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EL TIGRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="198" height="15" uuid="83d9b17d-641d-4694-a4bc-77e606420091"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPUESTOS VOLVO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="198" height="15" uuid="a66a1e1e-4fd2-4b48-89f3-aac08f934d85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[FALCON RAMOS, YULY VANESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="52" width="198" height="24" uuid="aec34a71-6227-40f9-95e6-4b81a1d0f8e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[VENTA DE REPUESTOS DE VOLVO Y ACCESORIOS EN GENERAL, COMPRA Y VENTA DE CABINA PARA VOLVO N12, NL, F12, FH PLANCHADO PINTURA Y FIBRA DE DE VIDRIO EN GENERAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="76" width="198" height="15" uuid="290546d1-df38-4e5f-8c19-704cb41574ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[BL. BQ Los Pinos Mza. A Lote 1 - Huánuco - Huánuco - Amarilis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="91" width="198" height="11" uuid="9c0440e7-f78c-4396-b26d-0a201cdaa2f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: 10457504433]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="102" width="198" height="11" uuid="d4f616ee-08ce-4ebd-8cbd-81bd64bb3a79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[CELULAR: 962966286 - 942173039 - 971704740]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="113" width="198" height="20" uuid="fab6fc5b-9928-43ae-9232-cb76c67ad3bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA ELECTRÓNICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="133" width="65" height="12" uuid="9a19479e-a7f3-4f8f-9f35-3d4e4a1fa771"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="133" width="123" height="12" uuid="8cd16877-f765-45e6-865d-d7661d7cf9c0"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vc_codf}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="34" height="10" uuid="132fac11-a031-4429-a113-f5bf4b5ff0af"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="13" width="14" height="10" uuid="70752fba-3056-448a-8bb2-5442b2ec0e6c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="34" height="10" uuid="e598439b-f6cb-4e27-ab79-9d0dda0f92e2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="24" height="10" uuid="fb2662c9-339e-488e-a27d-3f70c643d247"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="43" width="50" height="10" uuid="8906fff6-c0d6-4055-8f52-fc2e2cace16d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COND. DE PAGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="53" width="50" height="10" uuid="f9545ba3-229d-4e3d-bfed-640befcfad0d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENDEDOR (A):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="33" width="29" height="10" uuid="18271800-0628-4ed5-a85c-6d1f3c3beadb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONEDA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="43" width="40" height="10" uuid="b8f270aa-0b58-4ef2-80e4-90fdb5e64889"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IGV: 18.00%]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="53" width="148" height="10" uuid="9fdba21e-df3e-4967-a0f9-8fc8cf51228b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vendedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="43" width="78" height="10" uuid="a854d5b5-a0e5-4469-8aee-f56220de67d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cond_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="33" width="41" height="10" uuid="24f41ba5-8e44-44e1-a3c3-19348094c9ec"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="13" width="184" height="10" uuid="ec446ddf-07c1-4464-b762-fdd2d09c69e5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="23" width="164" height="10" uuid="326d251c-6ee1-4de0-9970-547b544865e7"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="33" width="104" height="10" uuid="3bebc568-5e57-49a5-944c-b2480b780b10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vc_fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="200" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="198" height="138" uuid="d9872386-c357-4e6d-b45b-30245d46e27b"/>
+				<subreportParameter name="venta_cabecera_iden">
+					<subreportParameterExpression><![CDATA[$P{venta_cabecera_iden}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BoletaVentaCabecera_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="141" width="65" height="13" uuid="ee6c9798-e563-4e1b-afc2-60c6a875367b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OPE. GRABADAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="154" width="65" height="11" uuid="d16cacc6-1bd8-48f0-96ec-6404aff9b259"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GV (18.00%)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="165" width="65" height="12" uuid="4597b8f3-be84-48fc-90c4-ae5769467249"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL (S/)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="141" width="133" height="13" uuid="efa41319-6c1d-4a8c-9dd4-670d9a2b92d5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{imp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="154" width="133" height="11" uuid="4bfaabeb-390a-4ec0-941b-67b73fcec7df"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{igv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="165" width="133" height="12" uuid="e0743b89-c244-4688-908f-b62e46950322"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{impt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="183" width="24" height="17" uuid="07c50d77-ec91-412c-896a-0b09ed8dff1f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SON:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="183" width="174" height="17" uuid="0f6e68ad-7f95-44c8-9f92-f03d05805ccf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{letras_impt}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="138" width="198" height="1" uuid="21f788cd-8fc7-4c98-b835-4a8c613afdd3"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="103">
+			<staticText>
+				<reportElement x="14" y="93" width="169" height="10" uuid="4132891f-8a87-4d05-9d0c-cb209cec02e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[Representacion impresa de la FACTURA ELECTRÓNICA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="57" y="0" width="100" height="93" uuid="a397935f-bea2-4a15-9512-c83352c605fb"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+    new com.google.zxing.qrcode.QRCodeWriter().encode(
+          "10457504433"+"|01|"+$F{vc_serie}+"|"+$F{vc_num}+"|"+$F{igv}+"|"+$F{impt}+"|"+$F{fecha_emision}+"|6|"+$F{ruc} , com.google.zxing.BarcodeFormat.QR_CODE, 200, 200))]]></imageExpression>
+			</image>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

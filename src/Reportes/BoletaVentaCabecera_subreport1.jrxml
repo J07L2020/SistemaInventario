@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BoletaVentaCabecera_subreport1" language="groovy" pageWidth="555" pageHeight="2000" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b4ffc3b6-a838-4252-8ed0-f9a46b4b431d">
+	<property name="ireport.zoom" value="2.5937424601000045"/>
+	<property name="ireport.x" value="680"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="venta_cabecera_iden" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+tbl_venta_detalle.`venta_cabecera_iden` AS id,
+     tbl_venta_detalle.`vd_cant` AS cant,
+     tbl_venta_detalle.`vd_punit` AS punit,
+     tbl_venta_detalle.`vd_subt` AS subt,
+concat(tbl_producto.`prod_desc`,', ',tbl_producto.`prod_caract`,' ',tbl_modelo.`mod_desc`," ",tbl_marca.`marc_desc`) as producto
+
+FROM
+     tbl_producto INNER JOIN tbl_venta_detalle ON tbl_producto.`producto_iden` = tbl_venta_detalle.`producto_iden`
+     INNER JOIN tbl_modelo ON tbl_producto.`modelo_iden` = tbl_modelo.`modelo_iden`
+     INNER JOIN tbl_marca ON tbl_modelo.`marca_iden` = tbl_marca.`marca_iden`
+
+WHERE tbl_venta_detalle.`venta_cabecera_iden`= $P{venta_cabecera_iden}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="cant" class="java.lang.Integer"/>
+	<field name="punit" class="java.lang.Double"/>
+	<field name="subt" class="java.lang.Double"/>
+	<field name="producto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="127" height="20" uuid="d51abdce-5fb0-4e71-943f-51ad0844b8dc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="0" width="27" height="20" uuid="0d531dba-32eb-418a-b1f4-41f3cfa91574"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="22" height="20" uuid="27a1a93a-8274-4ab3-8a07-53b87caeb3e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="0" width="26" height="20" uuid="b9fdbada-a969-4fa7-aeaf-d0c26b16551f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="202" height="1" uuid="cfeda3e1-99a7-42b6-ac7c-3afa70e743cd"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="127" height="10" uuid="94fd258e-4bf2-4196-ae92-f5e2d853669f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="0" width="27" height="10" uuid="fb9992aa-19c4-487a-800d-25b6e3ba2742"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{punit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="22" height="10" uuid="abfb31a3-2ee6-451e-a5a3-cf61cec7c302"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="0" width="26" height="10" uuid="da1ce81d-44b9-41b8-9511-36954ecf3573"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
